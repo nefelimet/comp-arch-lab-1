@@ -53,3 +53,24 @@
 
 	arm_linux_gnueabihf-gcc --static program.c -o program_arm
 για να γίνει cross-compiled. 
+
+Για τον MinorCPU, τρέχουμε την εντολή
+
+	./build/ARM/gem5.opt configs/example/se.py --cpu-type="MinorCPU" --caches --cmd="tests/test-progs/program/program_arm"
+ενώ για τον TimingSimpleCPU την εντολή
+
+	./build/ARM/gem5.opt configs/example/se.py --cpu-type="TimingSimpleCPU" --caches --cmd="tests/test-progs/program/program_arm"
+Από το αρχείο **_stats.txt_** αντλούμε για κάθε περίπτωση τα παρακάτω στοιχεία:
+| παράμετρος |  MinorCPU | TimingSimpleCPU |
+| --- | --- | --- |
+| final_tick | 34314000 | 38682000 |
+| sim_seconds | 0.000034 | 0.000039 |
+| sim_ticks | 34314000 | 38682000 |
+| host_tick_rate | 631506173 | 2602421486 |
+| host_inst_rate | 153724 | 561191 |
+| host_op_rate | 176317 | 638260 |
+| host_seconds | 0.05 | 0.01 |
+
+Τα στοιχεία δίνουν μια συνολική εικόνα για την απόδοση. Ο χρόνος εκτέλεσης σε δευτερόλεπτα είναι το **_sim_seconds_**.
+
+Για το MinorCPU μοντέλο, τα στοιχεία στο repo μας βρίσκονται στο αρχείο **_MinorCPU_stats.txt_**, ενώ για το TimingSimpleCPU στο **_TimingSimpleCPU_stats.txt_**.
