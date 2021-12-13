@@ -74,3 +74,41 @@
 Τα στοιχεία δίνουν μια συνολική εικόνα για την απόδοση. Ο χρόνος εκτέλεσης σε δευτερόλεπτα είναι το **_sim_seconds_**.
 
 Για το MinorCPU μοντέλο, τα στοιχεία στο repo μας βρίσκονται στο αρχείο **_MinorCPU_stats.txt_**, ενώ για το TimingSimpleCPU στο **_TimingSimpleCPU_stats.txt_**.
+
+**(b)** Η τεχνολογία μνήμης αλλάζει με το argument **_--mem-type=VALUE_**. Για το μοντέλο MinorCPU τρέχουμε την εντολή
+
+	./build/ARM/gem5.opt configs/example/se.py --cpu-type="MinorCPU" --caches --cmd="tests/test-progs/program/program_arm" --mem-type="SimpleMemory"
+για να δοκιμάσουμε τον τύπο μνήμης SimpleMemory, και μετά τρέχουμε την 
+
+	./build/ARM/gem5.opt configs/example/se.py --cpu-type="MinorCPU" --caches --cmd="tests/test-progs/program/program_arm" --mem-type="HBM_1000_4H_1x128"
+για να δοκιμάσουμε τον τύπο HBM_1000_4H_1x128. Τα αποτελέσματα στο repo μας είναι στα αρχεία **_MinorCPU_SimpleMemory_stats.txt"_** και **_MinorCPU_HBM_stats.txt"_** αντίστοιχα.
+
+Κάτι αντίστοιχο κάνουμε και για το TimingSimpleCPU.
+
+Τα αποτελέσματα αυτών των δοκιμών φαίνονται στους παρακάτω πίνακες.
+
+MinorCPU:
+
+| παράμετρος |  SimpleMemory |   HBM |
+| --- | --- | --- | --- | --- |
+| final_tick | 27141000 | 37163000 |
+| sim_seconds | 0.000027 | 0.000037 |
+| sim_ticks | 27141000 | 37163000 |
+| host_tick_rate | 609993469 | 758866298 |
+| host_inst_rate | 189585 | 172258 |
+| host_op_rate | 217010 | 197525 |
+| host_seconds | 0.04 | 0.05 |
+
+TimingSimpleCPU:
+
+| παράμετρος |  SimpleMemory |   HBM |
+| --- | --- | --- | --- | --- |
+| final_tick | 31701000| 41000000 |
+| sim_seconds | 0.000032 | 0.000041 |
+| sim_ticks | 31701000 | 41000000 |
+| host_tick_rate | 765641407 | 800815519 |
+| host_inst_rate | 200607 | 162499 |
+| host_op_rate | 228951 | 185168 |
+| host_seconds | 0.04 | 0.05 |
+
+	
