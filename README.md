@@ -61,6 +61,7 @@
 
 	./build/ARM/gem5.opt configs/example/se.py --cpu-type="TimingSimpleCPU" --caches --cmd="tests/test-progs/program/program_arm"
 Από το αρχείο **_stats.txt_** αντλούμε για κάθε περίπτωση τα παρακάτω στοιχεία:
+
 | παράμετρος |  MinorCPU | TimingSimpleCPU |
 | --- | --- | --- |
 | final_tick | 34314000 | 38682000 |
@@ -89,8 +90,8 @@
 
 MinorCPU:
 
-| παράμετρος |  SimpleMemory |   HBM |
-| --- | --- | --- | --- | --- |
+| παράμετρος |  SimpleMemory | HBM |
+| --- | --- | --- |
 | final_tick | 27141000 | 37163000 |
 | sim_seconds | 0.000027 | 0.000037 |
 | sim_ticks | 27141000 | 37163000 |
@@ -101,8 +102,8 @@ MinorCPU:
 
 TimingSimpleCPU:
 
-| παράμετρος |  SimpleMemory |   HBM |
-| --- | --- | --- | --- | --- |
+| παράμετρος |  SimpleMemory | HBM |
+| --- | --- | --- |
 | final_tick | 31701000| 41000000 |
 | sim_seconds | 0.000032 | 0.000041 |
 | sim_ticks | 31701000 | 41000000 |
